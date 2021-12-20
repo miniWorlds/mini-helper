@@ -1,0 +1,16 @@
+{
+  "name": "think/think-helper",
+  "description": "The think Helper Package",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "FengZhenRong",
+      "email": "544889826@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "think\\helper\\": "src"
+    }
+  }
+}
