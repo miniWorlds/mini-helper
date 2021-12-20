@@ -1,6 +1,6 @@
 {
-  "name": "think/think-helper",
-  "description": "The think Helper Package",
+  "name": "mini/mini-helper",
+  "description": "The Mini Helper Package",
   "license": "Apache-2.0",
   "authors": [
     {
@@ -10,7 +10,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "think\\helper\\": "src"
+      "mini\\helper\\": "src"
     }
   }
 }
