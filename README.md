@@ -2,7 +2,7 @@
 
 > 更新完善中
 
-> 以下类库都在`\\think\\helper`命名空间下
+> 以下类库都在`\\mini\\helper`命名空间下
 
 ## Str
 > 字符串操作
@@ -31,24 +31,15 @@ Str::substr($string, $start, $length = null)
 
 ```
 
-## Hash
-> 创建密码的哈希
-
-```
-// 创建
-Hash::make($value, $type = null, array $options = [])
-
-// 检查
-Hash::check($value, $hashedValue, $type = null, array $options = [])
-
-```
-
 ## Time
 > 时间戳操作
 
 ```
 // 今日开始和结束的时间戳
 Time::today();
+
+// 明日开始和结束得时间戳
+Time::tomorrow();
 
 // 昨日开始和结束的时间戳
 Time::yesterday();
@@ -80,7 +71,7 @@ Time::dayToNow(7, true)
 // 获取7天前的时间戳
 Time::daysAgo(7)
 
-//  获取7天后的时间戳
+// 获取7天后的时间戳
 Time::daysAfter(7)
 
 // 天数转换成秒数
@@ -88,5 +79,11 @@ Time::daysToSecond(5)
 
 // 周数转换成秒数
 Time::weekToSecond(5)
+
+// 当前毫秒时间戳
+Time::millisecond()
+
+// 毫秒时间戳转日期时间
+Time::millisecondToDate(1639972562000)
 
 ```

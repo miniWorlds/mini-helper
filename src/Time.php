@@ -1,7 +1,7 @@
 <?php
+declare(strict_types = 1);
 
-
-namespace think\helper;
+namespace mini\helper;
 
 
 class Time
@@ -11,7 +11,7 @@ class Time
      *
      * @return array
      */
-    public static function today()
+    public static function today() :array
     {
         list($y, $m, $d) = explode('-', date('Y-m-d'));
         return [
@@ -25,7 +25,7 @@ class Time
      *
      * @return array
      */
-    public static function tomorrow()
+    public static function tomorrow() :array
     {
         list($y, $m, $d) = explode('-', date('Y-m-d'));
         return [
@@ -39,7 +39,7 @@ class Time
      *
      * @return array
      */
-    public static function yesterday()
+    public static function yesterday() :array
     {
         $yesterday = date('d') - 1;
         return [
@@ -53,7 +53,7 @@ class Time
      *
      * @return array
      */
-    public static function week()
+    public static function week() :array
     {
         list($y, $m, $d, $w) = explode('-', date('Y-m-d-w'));
         if($w == 0) $w = 7;
@@ -67,7 +67,7 @@ class Time
      *
      * @return array
      */
-    public static function lastWeek()
+    public static function lastWeek() :array
     {
         $timestamp = time();
         return [
@@ -81,7 +81,7 @@ class Time
      *
      * @return array
      */
-    public static function month()
+    public static function month() :array
     {
         list($y, $m, $t) = explode('-', date('Y-m-t'));
         return [
@@ -95,7 +95,7 @@ class Time
      *
      * @return array
      */
-    public static function lastMonth()
+    public static function lastMonth() :array
     {
         $y = date('Y');
         $m = date('m');
@@ -110,7 +110,7 @@ class Time
      *
      * @return array
      */
-    public static function year()
+    public static function year() :array
     {
         $y = date('Y');
         return [
@@ -124,7 +124,7 @@ class Time
      *
      * @return array
      */
-    public static function lastYear()
+    public static function lastYear() :array
     {
         $year = date('Y') - 1;
         return [
@@ -140,7 +140,7 @@ class Time
      * @param bool $now 返回现在或者昨天结束时间戳
      * @return array
      */
-    public static function dayToNow($day = 1, $now = true)
+    public static function dayToNow(int $day = 1, bool $now = true) :array
     {
         $end = time();
         if (!$now) {
@@ -160,7 +160,7 @@ class Time
      * @param int $day
      * @return int
      */
-    public static function daysAgo($day = 1)
+    public static function daysAgo(int $day = 1) :int
     {
         $nowTime = time();
         return $nowTime - self::daysToSecond($day);
@@ -172,7 +172,7 @@ class Time
      * @param int $day
      * @return int
      */
-    public static function daysAfter($day = 1)
+    public static function daysAfter(int $day = 1) :int
     {
         $nowTime = time();
         return $nowTime + self::daysToSecond($day);
@@ -184,7 +184,7 @@ class Time
      * @param int $day
      * @return int
      */
-    public static function daysToSecond($day = 1)
+    public static function daysToSecond(int $day = 1) :int
     {
         return $day * 86400;
     }
@@ -195,7 +195,7 @@ class Time
      * @param int $week
      * @return int
      */
-    public static function weekToSecond($week = 1)
+    public static function weekToSecond(int $week = 1) :int
     {
         return self::daysToSecond() * 7 * $week;
     }
@@ -205,7 +205,7 @@ class Time
      *
      * @return int
      */
-    public static function millisecond()
+    public static function millisecond() :int
     {
         list($msecs, $sec) = explode(' ', microtime());
         return (float)sprintf('%.0f', (floatval($msecs) + floatval($sec)) * 1000);
@@ -217,7 +217,7 @@ class Time
      * @param int $millisecond
      * @return string
      */
-    public static function millisecondToDate(int $millisecond)
+    public static function millisecondToDate(int $millisecond) :string
     {
         $millisecond = $millisecond * 0.001;
         if(strstr($millisecond,'.')){

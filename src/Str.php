@@ -1,7 +1,7 @@
 <?php
 
 
-namespace think\helper;
+namespace mini\helper;
 
 
 class Str
